@@ -9,10 +9,24 @@
 	<table class="email_body" width="100%" cellspacing="0" cellpadding="10" border="0" bgcolor="#A6A3FC">
 		<tr>
 			<td align="center">
-				<table class="wrapper" style="max-width:600px;" cellspacing="0" cellpadding="10" border="0" bgcolor="#C0C0FF">
+				<table class="wrapper" style="max-width:620px; display:block" cellspacing="0" cellpadding="10" border="0" bgcolor="#C0C0FF">
 					<tr>
-						<td>
+						<td align="left">
+							<!-- Outlook and Lotus Notes don't support max-width but are always on desktop, so we can enforce a wide, fixed width view. -->
+							<!--[if (gte mso 9)|(IE)]>
+							<table width="600" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFF3CO">
+								<tr>
+									<td width="600">
+							<![endif]-->
+
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis fugit possimus sunt reiciendis sequi eligendi pariatur sapiente, expedita amet quaerat et molestiae deserunt? Asperiores assumenda id, voluptatum illo minus rem fuga, delectus cupiditate vitae enim tempore consequuntur ipsam doloremque, recusandae facere ipsum error eum harum minima nisi! Earum modi aspernatur soluta aliquid doloribus minus accusamus animi quis vel. Nihil itaque doloribus ducimus aliquam voluptatibus molestiae adipisci iusto quos quisquam sint quae deserunt quasi ipsum ea praesentium optio tempore eos qui asperiores atque, deleniti nobis laboriosam ut quis? Nihil quas debitis qui dicta illum. Sunt accusantium, repudiandae aperiam culpa praesentium est!
+						
+							<!-- End of Outlook-specific wrapper -->
+							<!--[if (gte mso 9)|(IE)]>
+									</td>
+								</tr>
+							</table>
+							<![endif]-->
 						</td>
 					</tr>
 				</table>
