@@ -139,10 +139,10 @@ What can we do with this code? Since the clients this matches are always desktop
 ```
 
 This fixes Lotus Noes 8 - 8.5, and all the Outlooks.
-![alt text](email2/Outlook-2013.png Outlook 2013)
+![alt text](email2/Outlook-2013.png "Outlook 2013")
 
 It has no effect on any clients we don't want it to, including Outlook 2011 for mac, which is using the WebKit to render the email.
-![alt text](email2/Outlook-2011 Outlook 2011 for mac)
+![alt text](email2/Outlook-2011 "Outlook 2011 for mac")
 
 (So we haven't fixed Lotus Notes 6.5 or 7. I view them in the same way I view ie6: obsolete and not worth my time, as long as its still possible for them to read the email, I don't care how horrible it looks.)
 
@@ -182,14 +182,14 @@ Tip: unlike the box model, Tables and Cells don't add the padding to the width. 
 Tip: when using `inline-block`, don't leave any whitespace (spaces, tabs, line breaks) between the elements, or it will render as a space.
 
 Both of these techniques have similar results. It looks suprisingly good across the board.
-![alt text](email3/ipad-mini.png iPad Mini)
-![alt text](email3/iphone4s.png iPhone 4s)
+![alt text](email3/ipad-mini.png "iPad Mini")
+![alt text](email3/iphone4s.png "iPhone 4s")
 
 We are only let down by blackberry and Windows Phone 8. I also found that the android mail app on my phone didn't render correctly, and showed two very narrow columns.
 
-![alt text](email3/blackberry.png Blackberry)
-![alt text](email3/windows-8.png Blackberry)
-![alt text](email3/android.png Blackberry)
+![alt text](email3/blackberry.png "Blackberry")
+![alt text](email3/windows-8.png "Windows Phone 8")
+![alt text](email3/android.png "Android")
 
 It seems that setting `float` or `inline-block` on a `td` is not always supported.
 
