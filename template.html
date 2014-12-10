@@ -1,137 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta charset="utf-8"> <!-- utf-8 works for most cases -->
-	<meta name="viewport" content="width=device-width"> <!-- Forcing initial-scale shouldn't be necessary -->
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Use the latest (edge) version of IE rendering engine -->
-	<title></title> <!-- the <title> tag shows on email notifications on Android 4.4. -->
-	<style type="text/css">
-
-		/* ensure that clients don't add any padding or spaces around the email design and allow us to style emails for the entire width of the preview pane */
-		body,
-		#bodyTable {
-			height:100% !important;
-			width:100% !important;
-			margin:0;
-			padding:0;
-		}
-		
-		/* Ensures Webkit- and Windows-based clients don't automatically resize the email text. */
-		body,
-		table,
-		td,
-		p,
-		a,
-		li,
-		blockquote {
-			-ms-text-size-adjust:100%;
-			-webkit-text-size-adjust:100%;
-		}
-
-		/* Forces Yahoo! to display emails at full width */
-		.thread-item.expanded .thread-body .body,
-		.msg-body {
-			width: 100% !important;
-			display: block !important;
-		}
-
-		/* Forces Hotmail to display emails at full width */
-		.ReadMsgBody,
-		.ExternalClass {
-			width: 100%;
-			background-color: #f4f4f4;
-		}
-
-		/* Forces Hotmail to display normal line spacing. */
-		.ExternalClass,
-		.ExternalClass p,
-		.ExternalClass span,
-		.ExternalClass font,
-		.ExternalClass td,
-		.ExternalClass div {
-			line-height:100%;
-		}
-
-		/* Resolves webkit padding issue. */
-		table {
-			border-spacing:0;
-		}
-
-		/* Resolves the Outlook 2007, 2010, and Gmail td padding issue, and removes spacing around tables that Outlook adds. */
-		table,
-		td {
-			border-collapse:collapse;
-			mso-table-lspace:0pt;
-			mso-table-rspace:0pt;
-		}
-		
-		/* Corrects the way Internet Explorer renders resized images in emails. */
-		img {
-			-ms-interpolation-mode: bicubic;
-		}
-		
-		/* Ensures images don't have borders or text-decorations applied to them by default. */
-		img,
-		a img {
-			border:0;
-			outline:none;
-			text-decoration:none;	    
-		}
-
-		/* Styles Yahoo's auto-sensing link color and border */
-		.yshortcuts a {
-			border-bottom: none !important;
-		}
-		
-		/* Styles the tel URL scheme */
-		a[href^=tel],
-		.mobile_link,
-		.mobile_link a {
-			color:#222222 !important;
-			text-decoration: underline !Important;
-		}
-	
-	
-		/* Apple Mail doesn't support max-width, so we use media queries to constrain the email container width. */
-		@media only screen and (min-width: 601px) {
-			.email-container {
-				width: 600px !important;
-			}
-		}
-					
-	</style>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Responsive Email</title><!-- Some clients display this in the title bar -->
 </head>
-<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" bgcolor="#f4f4f4" style="margin:0; padding:0; -webkit-text-size-adjust:none; -ms-text-size-adjust:none;">
-<table cellpadding="0" cellspacing="0" border="0" height="100%" width="100%" bgcolor="#f4f4f4" id="bodyTable" style="background: #f4f4f4 url(assets/nice_snow.png) repeat; border-collapse: collapse;table-layout: fixed;margin:0 auto;"><tr><td>
-
-	<!-- Outlook and Lotus Notes don't support max-width but are always on desktop, so we can enforce a wide, fixed width view. -->
-	<!-- Beginning of Outlook-specific wrapper : BEGIN -->
-	<!--[if (gte mso 9)|(IE)]>
-	<table width="600" align="center" cellpadding="0" cellspacing="0" border="0">
+<body style="margin: 0; padding: 0; width:100%; height:100%;">
+	<table class="email_body" width="100%" cellspacing="0" cellpadding="10" border="0" bgcolor="#A6A3FC">
 		<tr>
-			<td>
-	<![endif]-->
-	<!-- Beginning of Outlook-specific wrapper : END -->
-
-	<!-- Email wrapper : BEGIN -->
-	<table border="0" width="100%" cellpadding="0" cellspacing="0" align="center" style="max-width: 600px;margin: auto;" class="email-container">
-		<tr>
-			<td>
-
-				
+			<td align="center">
+				<table class="wrapper" style="max-width:600px;" cellspacing="0" cellpadding="10" border="0" bgcolor="#C0C0FF">
+					<tr>
+						<td>
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis fugit possimus sunt reiciendis sequi eligendi pariatur sapiente, expedita amet quaerat et molestiae deserunt? Asperiores assumenda id, voluptatum illo minus rem fuga, delectus cupiditate vitae enim tempore consequuntur ipsam doloremque, recusandae facere ipsum error eum harum minima nisi! Earum modi aspernatur soluta aliquid doloribus minus accusamus animi quis vel. Nihil itaque doloribus ducimus aliquam voluptatibus molestiae adipisci iusto quos quisquam sint quae deserunt quasi ipsum ea praesentium optio tempore eos qui asperiores atque, deleniti nobis laboriosam ut quis? Nihil quas debitis qui dicta illum. Sunt accusantium, repudiandae aperiam culpa praesentium est!
+						</td>
+					</tr>
+				</table>
 			</td>
 		</tr>
 	</table>
-	<!-- Email wrapper : END -->
-
-	<!-- End of Outlook-specific wrapper : BEGIN -->
-	<!--[if (gte mso 9)|(IE)]>
-			</td>
-		</tr>
-	</table>
-	<![endif]-->
-	<!-- End of Outlook-specific wrapper : END -->
-
-</td></tr></table>
 </body>
 </html>
