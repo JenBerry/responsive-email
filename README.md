@@ -38,7 +38,7 @@ Looking on the web for something that will do this. I find Cerberus
 
 At first glance, Cerberus appears to be exactly what we want, but on closer inspection we can see that it is not. Their first template does exactly what we want, but only in clients that support media queries, so not gmail. Their second template does work on gmail, but doesn't exhibit the desired behaiour of two columns condensing down to one.
 
-Gmail is a client we simply can't ignore. Litmus ranks it as #2 in the world (http://emailclientmarketshare.com/). So I will have to find my own solution. However I did take a few styling ideas from Cerberus to help fix known problems
+Gmail is a client we simply can't ignore. Litmus ranks it as #2 in the world (http://emailclientmarketshare.com/). So I will have to find my own solution.
 
 ## A Basic Email
 
@@ -78,7 +78,7 @@ Both tables have a `cellpadding` of 10px, and background colours to help us see 
 
 Lets see what Litmus makes of this.
 
-Firstly we can see that most of the desktop clients are ignoring our min-width
+Firstly we can see that most of the desktop clients are ignoring our max-width
 ![alt text](email1/Outlook-2011.png "Outlook 2011")
 
 Thunderbird is the only one to get it right.
@@ -98,9 +98,9 @@ On the bright side. All the mobiles and tablets are working pretty much how we w
 
 Some people advocate using media queries for the clients that do support them, to set the width on larger screens. However this causes issues with web-based clients in that the width detected by the media query is the full width of the browser, not the part of it that the email is in. And anyway, this wouldn't fix Outlook.
 
-In Apple Mail, it turns out that it allows max-width on block level elements, but not on table elements. So a quick fix is to add the style `display:block` to our table. This also fixes Outlook 2011 on mac, because this version of Outlook, like Apple Mail, uses WebKit, and is therefor farely sensible. (It also turns out that this cures Lotus Notes 8 of it's crazyness as well, although it doesn't fix the max-width problem.)
+In Apple Mail, it turns out that it allows max-width on block level elements, but not on table elements. So a quick fix is to add the style `display:block` to our table. This also fixes Outlook 2011 on mac, because this version of Outlook, like Apple Mail, uses WebKit, and is therefore farely sensible. (It also turns out that this cures Lotus Notes 8 of it's crazyness as well, although it doesn't fix the max-width problem.)
 
-But what about the rest of Outlook and Lotus Notes? Thankfully microsoft have been very helpful, and given us some conditional code that only they will render. It looks like this:
+But what about the rest of Outlook and Lotus Notes? Thankfully Microsoft have been very helpful, and given us some conditional code that only they will render. It looks like this:
 
 ```
 <!--[if (gte mso 9)|(IE)]>
@@ -109,7 +109,7 @@ But what about the rest of Outlook and Lotus Notes? Thankfully microsoft have be
 ```
 `mso 9` targets Microsoft Office 2000, `gte` means greater than or equal to. So this should match version 2000 and later. `IE` targets internet explorer versions 5-9.
 
-Turns out `IE` Matches Lotus notes 8 & 8.5, and Outlook 2002 & 2003
+Turns out `IE` Matches Lotus notes 8 & 8.5, and Outlook 2002 & 2003.
 While `gte mso 9` matches outlook 2007, 2010 & 2013
 
 What can we do with this code? Since the clients this matches are always desktop based, we can dispense with the responsiveness and code in the width of the table to 600px. I've given it a nice colour so we can see where it is being used.
@@ -155,6 +155,7 @@ What is a good width for a column to be displayed full width on mobile?
 Well, we need to see how different devices behave. Some experimentation with Litmus uncovers the following:
 - All iphones will scale down emails which are too big, so there is a little flexability. width ranges from 292px to 390px
 - Blackberry (447px) and the Gmail App for Android will scale down any elements which are too big (essentially applying max-width to everything), again this allows for some leeway.
+
 However others aren't flexible
 - Android 4.2 (320px)
 - Windows Phone (is 384px, but scales everything up by 20%, so actually need to design for 320px)
@@ -177,9 +178,7 @@ Responsive web designers have two main tricks for getting content to move undern
 ```
 For Float, replace `display:inline-block` with `float:left`.
 
-Tip: unlike the box model, Tables and Cells don't add the padding to the width. However if we change the `display` property to `block` or `inline-block` it uses the box model.
-
-Tip: when using `inline-block`, don't leave any whitespace (spaces, tabs, line breaks) between the elements, or it will render as a space.
+_Tip: when using `inline-block`, don't leave any whitespace (spaces, tabs, line breaks) between the elements, or it will render as a space._
 
 Both of these techniques have similar results. It looks suprisingly good across the board.
 ![alt text](email3/ipad-mini.png "iPad Mini")
@@ -193,4 +192,64 @@ We are only let down by blackberry and Windows Phone 8. I also found that the an
 
 It seems that setting `float` or `inline-block` on a `td` is not always supported.
 
+What if we set it on a `table` instead?
+```html
+  <table width="300px" cellspacing="0" cellpadding="10" border="0" bgcolor="#FFC2C2" style="display:inline-block">
+    <tr>
+      <td align="left">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis soluta ea nobis minima magni accusantium exercitationem cumque nostrum consequuntur sapiente a saepe impedit veniam unde iste odio voluptate, in pariatur architecto quos, dolorum alias. Aspernatur laudantium itaque recusandae assumenda, voluptas eveniet, totam voluptates in dignissimos quibusdam repudiandae similique cumque placeat.
+      </td>
+    </tr>
+  </table><!--
+ --><table width="300px" cellspacing="0" cellpadding="10" border="0" bgcolor="#FFFFDA" style="display:inline-block">
+    <tr>
+      <td align="left">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero animi rem possimus ipsa distinctio quas, eaque illum culpa, eum placeat aperiam atque enim neque, expedita quos sapiente iure perspiciatis asperiores saepe minima ab dolores? Quibusdam quasi obcaecati, in dolorum doloremque aliquam laboriosam voluptatibus sint, quae maiores delectus fugiat a placeat!
+      </td>
+    </tr>
+  </table>
+```
 
+All the problematic clients from before are now working But...
+
+Now Outlook and Lotus Notes are broken because they don't support the `display` property. This may seem like a step backwards, but remember we have that magical piece of code that can fix Outlook at Lotus Notes.
+
+```html
+<table class="wrapper" style="max-width:610px; display:block" cellspacing="0" cellpadding="5" border="0" bgcolor="#C0C0FF">
+  <tr>
+    <td align="center">
+      <!-- Outlook and Lotus Notes don't support max-width but are always on desktop, so we can enforce a wide, fixed width view. -->
+      <!--[if (gte mso 9)|(IE)]>
+      <table width="600" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFF3C0">
+        <tr>
+          <td width="300">
+      <![endif]-->
+
+      <table width="300px" cellspacing="0" cellpadding="10" border="0" bgcolor="#FFC2C2" style="display:inline-block">
+        <tr>
+          <td align="left">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis soluta ea nobis minima magni accusantium exercitationem cumque nostrum consequuntur sapiente a saepe impedit veniam unde iste odio voluptate, in pariatur architecto quos, dolorum alias. Aspernatur laudantium itaque recusandae assumenda, voluptas eveniet, totam voluptates in dignissimos quibusdam repudiandae similique cumque placeat.
+          </td>
+        </tr>
+      </table><!--[if (gte mso 9)|(IE)]>
+          </td>
+          <td width="300">
+<![endif]--><table width="300px" cellspacing="0" cellpadding="10" border="0" bgcolor="#FFFFDA" style="display:inline-block">
+        <tr>
+          <td align="left">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero animi rem possimus ipsa distinctio quas, eaque illum culpa, eum placeat aperiam atque enim neque, expedita quos sapiente iure perspiciatis asperiores saepe minima ab dolores? Quibusdam quasi obcaecati, in dolorum doloremque aliquam laboriosam voluptatibus sint, quae maiores delectus fugiat a placeat!
+          </td>
+        </tr>
+      </table>
+      <!-- End of Outlook-specific wrapper -->
+      <!--[if (gte mso 9)|(IE)]>
+          </td>
+        </tr>
+      </table>
+      <![endif]-->
+    </td>
+  </tr>
+</table>
+```
+
+And there, my dear friends, you have a responsive email. 
