@@ -142,7 +142,7 @@ This fixes Lotus Noes 8 - 8.5, and all the Outlooks.
 ![alt text](email2/Outlook-2013.png "Outlook 2013")
 
 It has no effect on any clients we don't want it to, including Outlook 2011 for mac, which is using the WebKit to render the email.
-![alt text](email2/Outlook-2011 "Outlook 2011 for mac")
+![alt text](email2/Outlook-2011.png "Outlook 2011 for mac")
 
 (So we haven't fixed Lotus Notes 6.5 or 7. I view them in the same way I view ie6: obsolete and not worth my time, as long as its still possible for them to read the email, I don't care how horrible it looks.)
 
