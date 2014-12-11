@@ -3,41 +3,79 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" /><!-- Fix for Windows Phone 8 Quirks Mode -->
 	<title>Responsive Email</title><!-- Some clients display this in the title bar -->
 </head>
 <body style="margin: 0; padding: 0; width:100%; height:100%; background-color: #FFE9AD" bgcolor="#FFE9AD">
 	<style>
-		
+		@media only screen and (max-width: 620px) {
+				.wrapper {
+					width: 310px !important;
+				}
+			}
 	</style>
 	<table class="email_body" width="100%" cellspacing="0" cellpadding="5" border="0" bgcolor="#A6A3FC">
 		<tr>
 			<td align="center">
+				<!-- Must have display:block along with max-width for WebKit clients -->
 				<table class="wrapper" style="max-width:610px; display:block" cellspacing="0" cellpadding="5" border="0" bgcolor="#C0C0FF">
 					<tr>
-						<td align="center">
+						<td>
 							<!-- Outlook and Lotus Notes don't support max-width but are always on desktop, so we can enforce a wide, fixed width view. -->
 							<!--[if (gte mso 9)|(IE)]>
-							<table width="600" cellpadding="0" cellspacing="0" border="0" bgcolor="#FFF3C0">
+							<table width="600" cellpadding="0" cellspacing="0" border="0">
 								<tr>
-									<td width="300">
+									<td width="600">
 							<![endif]-->
 
-							<table width="300px" cellspacing="0" cellpadding="10" border="0" bgcolor="#FFC2C2" style="display:inline-block">
+							<table cellspacing="0" cellpadding="0" border="0" >
 								<tr>
-									<td align="left">
-										Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis soluta ea nobis minima magni accusantium exercitationem cumque nostrum consequuntur sapiente a saepe impedit veniam unde iste odio voluptate, in pariatur architecto quos, dolorum alias. Aspernatur laudantium itaque recusandae assumenda, voluptas eveniet, totam voluptates in dignissimos quibusdam repudiandae similique cumque placeat.
+									<td align="center" width="100%" style="font-size:2em; background-color: #C5D3FF">
+										<center>
+											<b>A Responsive Email</b>
+										</center>
 									</td>
 								</tr>
-							</table><!--[if (gte mso 9)|(IE)]>
+								<tr align="center">
+									<td>
+										<!--[if (gte mso 9)|(IE)]>
+										<table width="600" cellpadding="0" cellspacing="0" border="0">
+											<tr>
+												<td width="300" valign="top">
+										<![endif]-->
+										
+										<table valign="top" width="300px" cellspacing="0" cellpadding="10" border="0" bgcolor="#FFC2C2" style="display:inline-block; vertical-align: top">
+											<tr>
+												<td align="left">
+													Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis soluta ea nobis minima magni accusantium exercitationem cumque nostrum consequuntur sapiente a saepe impedit veniam unde iste odio voluptate, in pariatur architecto quos, dolorum alias. Aspernatur laudantium itaque recusandae assumenda, voluptas eveniet, totam voluptates in dignissimos quibusdam repudiandae similique cumque placeat.
+												</td>
+											</tr>
+										</table><!--[if (gte mso 9)|(IE)]>
+												</td>
+												<td width="300" valign="top">
+							<![endif]--><table valign="top" width="300px" cellspacing="0" cellpadding="10" border="0" bgcolor="#FFFFDA" style="display:inline-block; vertical-align: top">
+											<tr>
+												<td align="left">
+													Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero animi rem possimus ipsa distinctio quas, eaque illum culpa, eum placeat aperiam atque enim neque, expedita quos sapiente iure perspiciatis asperiores saepe minima ab dolores? Quibusdam quasi obcaecati, in dolorum doloremque aliquam laboriosam voluptatibus sint, quae maiores delectus fugiat a placeat!
+												</td>
+											</tr>
+										</table>
+										<!--[if (gte mso 9)|(IE)]>
+												</td>
+											</tr>
+										</table>
+										<![endif]-->
+
 									</td>
-									<td width="300">
-				<![endif]--><table width="300px" cellspacing="0" cellpadding="10" border="0" bgcolor="#FFFFDA" style="display:inline-block">
+								</tr>
 								<tr>
-									<td align="left">
-										Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero animi rem possimus ipsa distinctio quas, eaque illum culpa, eum placeat aperiam atque enim neque, expedita quos sapiente iure perspiciatis asperiores saepe minima ab dolores? Quibusdam quasi obcaecati, in dolorum doloremque aliquam laboriosam voluptatibus sint, quae maiores delectus fugiat a placeat!
+									<td align="left" width="100%" style="background-color: #C5D3FF">
+										By Jen Berry
 									</td>
 								</tr>
 							</table>
+
+
 
 						
 							<!-- End of Outlook-specific wrapper -->
