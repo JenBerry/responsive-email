@@ -206,6 +206,7 @@ We are only let down by blackberry and Windows Phone 8.
 ![alt text](email3/windows-8.png "Windows Phone 8")
 
 I also found that the android mail app on my phone didn't render correctly, and showed two very narrow columns.
+
 ![alt text](email3/android.png "Android")
 
 It seems that setting `float` or `inline-block` on a `td` is not always supported.
