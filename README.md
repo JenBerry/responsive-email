@@ -33,19 +33,19 @@ I will also test the email directly in the following clients:
 
 ##The Problem
 
-Writing HTML emails that look good across all devices and email clients is not a trivial task. If you are used to responsive HTML you will be thinking `@media` queries, percentage `width`s, `max-width`s/`min-width`s, `inline-block`s, `float`s... a quick look at some of the limitations of popular email clients will quickly burst this dream.
+Writing HTML emails that look good across all devices and email clients is not a trivial task. If you are used to responsive HTML you will be thinking media queries, percentage widths, max/min-widths, inline-blocks, floats... a quick look at some of the limitations of popular email clients will quickly burst this dream.
 
 * Gmail
-..* Removes any `<style>` tags. So all styles must be inline!
-..* No support for `@media` queries.
-..* Converts all `height` attributes to `min-height` and ignores negative margins/padding. So containers will always expand vertically to fit content.
+  * Removes any `<style>` tags. So all styles must be inline!
+  * No support for `@media` queries.
+  * Converts all `height` attributes to `min-height` and ignores negative margins/padding. So containers will always expand vertically to fit content.
 * Outlook for desktop
-..* Ignores `display` attribute. No `inline-block` styling.
-..* Ignores `float` attribute.
-..* Ignores all margins and applies some of its own.
-..* Ignores `max-width`.
+  * Ignores `display` attribute. No `inline-block` styling.
+  * Ignores `float` attribute.
+  * Ignores all margins and applies some of its own.
+  * Ignores `max-width`.
 * Windows phone 8
-..* renders in quirks mode by default. But this can be fixed easily: add `<meta http-equiv="X-UA-Compatible" content="IE=edge" />` to the head.
+  * renders in quirks mode by default. But this can be fixed easily: add `<meta http-equiv="X-UA-Compatible" content="IE=edge" />` to the head.
 
 ## Existing templates
 
@@ -161,7 +161,7 @@ This fixes Lotus Noes 8 - 8.5, and all the Outlooks.
 
 It has no effect on any clients we don't want it to.
 
-(So we haven't fixed Lotus Notes 6.5 or 7. I view them in the same way I view IE6: obsolete and not worth my time, as long as its still possible for them to read the email, I don't care how horrible it looks.)
+(So we haven't fixed Lotus Notes 6.5 or 7. I view them in the same way I view IE6: obsolete and not worth my time, as long as it's still possible for them to read the email, I don't care how horrible it looks.)
 
 ##Two Columns
 
@@ -204,6 +204,7 @@ Both of these techniques have similar results. It looks suprisingly good across 
 We are only let down by blackberry and Windows Phone 8.
 ![alt text](email3/blackberry.png "Blackberry")
 ![alt text](email3/windows-8.png "Windows Phone 8")
+
 I also found that the android mail app on my phone didn't render correctly, and showed two very narrow columns.
 ![alt text](email3/android.png "Android")
 
@@ -233,7 +234,7 @@ Yes. Blackberry and my Android mail app are now working. Windows Phone 8 is stil
 ```
 That fixes it.
 
-Now Outlook and Lotus Notes are broken because they don't support the `display` property. This may seem like a step backwards, but remember we have that magical piece of code that can fix Outlook and Lotus Notes.
+However now Outlook and Lotus Notes are broken because they don't support the `display` property. This may seem like a step backwards, but remember we have that magical piece of code that can fix Outlook and Lotus Notes.
 
 ```html
 <table class="wrapper" style="max-width:610px; display:block" cellspacing="0" cellpadding="5" border="0" bgcolor="#C0C0FF">
@@ -350,7 +351,7 @@ Now I did say the email would have a header and footer. So I'll add some in. Thi
 
 This works nicely in most cases.
 ![alt text](email4/thunderbird.png "Thunderbird")
-![alt text](email4/iphone5.png.png "iPhone 5")
+![alt text](email4/iphone5.png "iPhone 5")
 
 However it can look a bit strange at intermediate sizes in between 320px and 600px
 ![alt text](email4/iphone6plus.png "iPhone 6 Plus")
