@@ -94,21 +94,21 @@ Both tables have a `cellpadding` of 10px, and background colours to help us see 
 Lets see what Litmus makes of this.
 
 Firstly we can see that most of the desktop clients are ignoring our max-width
-![alt text](email1/Outlook-2011.png "Outlook 2011")
+![alt text](images/email1/Outlook-2011.png "Outlook 2011")
 
 Thunderbird is the only one to get it right.
-![alt text](email1/Thunderbird.png "Thunderbird")
+![alt text](images/email1/Thunderbird.png "Thunderbird")
 
 As for Lotus notes 8...
-![alt text](email1/Lotus-Notes-8.png "Lotus Notes 8")
+![alt text](images/email1/Lotus-Notes-8.png "Lotus Notes 8")
 Well lets just not go there...
 
 Secondly we can see the treatment of the text alignment is inconsistent. Some Clients, such as older versions of outlook, some web based clients running on internet explorer, and Windows Phone are centering the text. Fortunately this is an easy fix, just add `align="left"` to it.
-![alt text](email1/Gmail-ie.png "Gmail (Explorer)")
+![alt text](images/email1/Gmail-ie.png "Gmail (Explorer)")
 
 
 On the bright side. All the mobiles and tablets are working pretty much how we would like them too.
-![alt text](email1/Iphone-6+.png "Ipone 6 Plus")
+![alt text](images/email1/Iphone-6+.png "Ipone 6 Plus")
 
 ##Max-width work around
 
@@ -157,7 +157,7 @@ What can we do with this code? Since the clients this matches are always desktop
 ```
 
 This fixes Lotus Noes 8 - 8.5, and all the Outlooks.
-![alt text](email2/Outlook-2013.png "Outlook 2013")
+![alt text](images/email2/Outlook-2013.png "Outlook 2013")
 
 It has no effect on any clients we don't want it to.
 
@@ -198,16 +198,16 @@ For Float, replace `display:inline-block` with `float:left`.
 _Tip: when using `inline-block`, don't leave any whitespace (spaces, tabs, line breaks) between the elements, or it will render as a space._
 
 Both of these techniques have similar results. It looks suprisingly good across the board.
-![alt text](email3/ipad-mini.png "iPad Mini")
-![alt text](email3/iphone4s.png "iPhone 4s")
+![alt text](images/email3/ipad-mini.png "iPad Mini")
+![alt text](images/email3/iphone4s.png "iPhone 4s")
 
 We are only let down by blackberry and Windows Phone 8.
-![alt text](email3/blackberry.png "Blackberry")
-![alt text](email3/windows-8.png "Windows Phone 8")
+![alt text](images/email3/blackberry.png "Blackberry")
+![alt text](images/email3/windows-8.png "Windows Phone 8")
 
 I also found that the android mail app on my phone didn't render correctly, and showed two very narrow columns.
 
-![alt text](email3/android.png "Android")
+![alt text](images/email3/android.png "Android")
 
 It seems that setting `float` or `inline-block` on a `td` is not always supported.
 
@@ -351,11 +351,11 @@ Now I did say the email would have a header and footer. So I'll add some in. Thi
 ```
 
 This works nicely in most cases.
-![alt text](email4/thunderbird.png "Thunderbird")
-![alt text](email4/iphone5.png "iPhone 5")
+![alt text](images/email4/thunderbird.png "Thunderbird")
+![alt text](images/email4/iphone5.png "iPhone 5")
 
 However it can look a bit strange at intermediate sizes in between 320px and 600px
-![alt text](email4/iphone6plus.png "iPhone 6 Plus")
+![alt text](images/email4/iphone6plus.png "iPhone 6 Plus")
 
 For devices that support it, we can use a media query to force the width to 320px
 ```css
@@ -366,9 +366,9 @@ For devices that support it, we can use a media query to force the width to 320p
   }
 ```
 This fixes mobile devices (except blackberry)
-![alt text](email4/iphone6plus-fixed.png "iPhone 6 Plus")
+![alt text](images/email4/iphone6plus-fixed.png "iPhone 6 Plus")
 
 but doesn't help with the web based browsers because the width of the email is much less than the width of the browser that the media query uses.
-![alt text](email4/outlook.com-firefox.png "Outlook.com (Firefox)")
+![alt text](images/email4/outlook.com-firefox.png "Outlook.com (Firefox)")
 
 There's no way around this I have found, except to factor it in to your designs. Maybe you would rather the columns didn't center, but displayed on the left, so it looks better, or restrict the width of your header and footer to the width of your columns. But how often are web-based email clients viewed at less than 620px? Maybe this is something we can ignore.
