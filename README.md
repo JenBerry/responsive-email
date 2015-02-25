@@ -1,6 +1,6 @@
 # Responsive email template.
 ## The objective
-Here I will make a responive HTML email template. It will have two columns which condense down to one column on smaller screens.
+Here I will make a responsive HTML email template. It will have two columns which condense down to one column on smaller screens.
 ```
 _________________                   _________
 | Header        |                   |Header |
